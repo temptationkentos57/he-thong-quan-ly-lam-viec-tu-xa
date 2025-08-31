@@ -11,7 +11,10 @@ const dbName = 'quanlylamviec';
 const mongoURI = `mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Kết nối với MongoDB thành công'))
-  .catch(err => console.error('Lỗi kết nối MongoDB:', err));
+  .catch(err => {
+    console.error('Lỗi kết nối MongoDB:', err);
+    process.exit(1);
+});
 
 app.get('/', (req, res) => {
   res.send('Hệ Thống Quản Lý Làm Việc Từ Xa');
