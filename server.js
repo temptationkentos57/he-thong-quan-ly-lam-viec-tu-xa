@@ -17,7 +17,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 });
 
 app.get('/', (req, res) => {
-  res.send('Hệ Thống Quản Lý Làm Việc Từ Xa');
+  res.send('Chào mừng bạn đến với Hệ Thống Quản Lý Làm Việc Từ Xa');
 });
 
 app.listen(PORT, () => {
