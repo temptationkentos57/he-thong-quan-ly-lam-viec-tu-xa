@@ -5,7 +5,9 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.mongodb.net/quanlylamviec?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+mongoose.connect(`mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mongodb.net/quanlylamviec?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Kết nối với MongoDB thành công'))
   .catch(err => console.error('Lỗi kết nối MongoDB:', err));
 
