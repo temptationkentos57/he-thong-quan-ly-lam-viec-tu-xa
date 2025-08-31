@@ -7,7 +7,9 @@ app.use(express.json());
 
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
-mongoose.connect(`mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mongodb.net/quanlylamviec?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+const dbName = 'quanlylamviec';
+const mongoURI = `mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Kết nối với MongoDB thành công'))
   .catch(err => console.error('Lỗi kết nối MongoDB:', err));
 
